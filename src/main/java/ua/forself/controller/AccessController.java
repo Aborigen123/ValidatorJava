@@ -91,11 +91,11 @@ if(result.hasErrors()) {
 	public String addRegistration(@ModelAttribute("registrationModel")   @Valid RegistrationRequest registrationRequest, 
 			@ModelAttribute("autorizationModel")@Valid Autorization autorization,
 			BindingResult result) {
-
-	if(result.hasErrors()) {
-		return "access/error";
-	}
-	
+//
+//	if(result.hasErrors()) {
+//		return "access/error";
+//	}
+//	
 		Registration registration = RegistrationMapper.toRegistration(registrationRequest);
 	regService.saveRegistation(registration);
 	autoService.saveAutorization(autorization);
