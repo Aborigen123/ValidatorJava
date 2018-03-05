@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ua.forself.service.AutoService;
-import ua.forself.service.RegService;
 import ua.online.courses.config.validation.anotation.CorrectAutorization;
 
 
@@ -24,13 +23,10 @@ public class CorrectAutorizationValidation implements ConstraintValidator<Correc
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext arg1) {
 		if(value == null) {return false;}
-		
-		if(autoService.findCorrectAutorization(value)!= null) {
-			return false;
+		if(autoService.findCorrectAutorization(value) != null) {
+			return true;
 			}else {
 		
 			
-			return true;
-			}
-
-}}
+			return false;
+			}}}

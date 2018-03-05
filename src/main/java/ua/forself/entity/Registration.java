@@ -5,43 +5,38 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import ua.online.courses.config.validation.anotation.ConfirmationPassword;
-
+import ua.online.courses.config.validation.anotation.CP;
 import ua.online.courses.config.validation.anotation.UniqueRegistrationLogin1;
 
 @Entity
 @Table(name = "registration")
-public class Registration extends BaseEntity {
 
-	@NotEmpty(message = "You dont write a Login")
-	@NotNull(message = "You dont write a Login")
-	@Size(min = 2, max = 10, message = "Should be beetween 2 and 10")
+public class Registration extends BaseEntity {
+	//@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Typed email has not correct format")
+
 	@UniqueRegistrationLogin1(message="Model already exists")
 	private String login1;
 	
-	@NotEmpty(message = "You dont write a Password")
-	@NotNull(message = "You dont write a Password")
-	@Size(min = 2, max = 20, message = "Should be beetween 2 and 10")
-//	@ConfirmationPassword(message="One of confirm password write dont correct")
+	
 	private String password1;
 	
-@NotEmpty(message = "You dont write a Email")
-@NotNull(message = "You dont write a Email")
-	//@Email(message = "You make a mistake when you write  a Email")
+ 
 	private String email1;
 	
-	@NotEmpty(message = "You dont write a PasswordSecond")
-	@NotNull(message = "You dont write a PasswordSecond")
-	@Size(min = 2, max = 20, message = "Should be beetween 2 and 10")
-//	@ConfirmationPassword(message="One of confirm password write dont correct")
+
 	private String confirmationPassword;
+	
 	
 	@OneToOne(mappedBy = "registration", cascade = CascadeType.ALL)
 	private Autorization autorization;
+	
+//	@OneToOne(mappedBy = "registration", cascade = CascadeType.ALL)
+//	private Profile profile;
 	
 	public Registration () {}
 
@@ -84,7 +79,19 @@ public class Registration extends BaseEntity {
 	public void setConfirmationPassword(String confirmationPassword) {
 		this.confirmationPassword = confirmationPassword;
 	}
-	
+
+
+	public Autorization getAutorization() {
+		return autorization;
+	}
+
+
+	public void setAutorization(Autorization autorization) {
+		this.autorization = autorization;
+	}
+
+
+
 	
 	
 

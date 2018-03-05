@@ -14,7 +14,9 @@ import ua.forself.service.AutoService;
 @Service
 public class AutoServiseImp implements AutoService  {
 
-	@Autowired private AutoRepository autoRepository;
+	@Autowired 
+	private AutoRepository autoRepository;
+	
 	@Override
 	public void saveAutorization(Autorization autorization) {
 		autoRepository.save(autorization);
@@ -30,8 +32,27 @@ public class AutoServiseImp implements AutoService  {
 	@Override
 	public Autorization findCorrectAutorization(String model) {
 		
-		return autoRepository.findCorrectAutorization(model, model);
+		return autoRepository.findCorrectAutorization(model);
 	}
+
+	@Override
+	public Autorization findCorrectAutorization1(String model) {
+		
+		return autoRepository.findCorrectAutorization1(model);
+	}
+
+	@Override
+	public Autorization findAutorizationById(int id) {
+		
+		 return autoRepository.findOne(id);
+	}
+
+
+//	@Override
+//	public Autorization findCorrectAutorization(Autorization autorization) {
+//		
+//		return autoRepository.findCorrectAutorization(autorization);
+//	}
 
 
 

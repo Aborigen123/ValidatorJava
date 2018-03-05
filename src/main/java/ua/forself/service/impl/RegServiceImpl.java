@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ua.forself.entity.Autorization;
 import ua.forself.entity.Registration;
 import ua.forself.repository.RegRepository;
 import ua.forself.service.RegService;
@@ -34,9 +35,21 @@ public class RegServiceImpl implements RegService{
 	}
 
 	@Override
-	public Registration findConfirmationPassword(String model) {
-		return regRepository.findConfirmationPassword(model, model);
+	public Registration findRegistrationById(int id) {
+		
+		return regRepository.findOne(id);
 	}
+
+//	@Override
+//	public Registration findConfirmationPassword(String model) {
+//		return regRepository.findConfirmationPassword(model, model);
+//	}
+
+//	@Override
+//	public Registration findConfirmationPassword(Registration registration) {
+//		// TODO Auto-generated method stub
+//		return regRepository.findConfirmationPassword(registration);
+//	}
 
 
 

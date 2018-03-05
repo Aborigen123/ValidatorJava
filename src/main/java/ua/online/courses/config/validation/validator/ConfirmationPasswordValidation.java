@@ -6,6 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import ua.forself.entity.Registration;
 import ua.forself.service.RegService;
 import ua.online.courses.config.validation.anotation.ConfirmationPassword;
 
@@ -21,18 +22,27 @@ public class ConfirmationPasswordValidation  implements ConstraintValidator<Conf
 		
 	}
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext arg1) {
-		if(value == null) {return false;}
-		if(regService.findConfirmationPassword(value) != null) {
-			return false;
-			}else {
-		
-			
-			return true;
-			}
+	
 
-}
+//	@Override
+//	public boolean isValid(Registration registration, ConstraintValidatorContext arg1) {
+//	    if(registration.getPassword1().equals(registration.getConfirmationPassword())) {
+//	        return true;
+//	        }
+//	        else return false;
+//	    }
+
+
+
+	@Override
+	public boolean isValid(String arg0, ConstraintValidatorContext arg1) {
+		
+		Registration registration = new Registration();
+		   if(registration.getPassword1().equals(registration.getConfirmationPassword())) {
+		        return true;
+		        }
+		        else return false;
+		    }
 
 	}
 
