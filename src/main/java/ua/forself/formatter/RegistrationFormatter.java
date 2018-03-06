@@ -21,7 +21,7 @@ public class RegistrationFormatter implements Formatter<Registration> {
 	public Registration parse(String text, Locale arg1) throws ParseException {
 		Registration registration = new Registration();
 		registration.setId(Integer.valueOf(text));
-		return registration ;
+		return registration;
 	}
 
 }
