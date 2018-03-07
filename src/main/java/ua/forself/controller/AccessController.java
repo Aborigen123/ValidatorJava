@@ -63,9 +63,9 @@ public class AccessController {
 	public String addAccess(@ModelAttribute("accessModel") @Valid Autorization autorization,
 		BindingResult result) {
 
-if(result.hasErrors()) {
-	return "access/error";
-}
+//if(result.hasErrors()) {
+//	return "access/error";
+//}
 
 	return "redirect:/listUser/profile";
 	}	
