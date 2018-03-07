@@ -19,7 +19,7 @@ import ua.online.courses.config.validation.anotation.UniqueRegistrationLogin1;
 public class Registration extends BaseEntity {
 	//@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Typed email has not correct format")
 
-	@UniqueRegistrationLogin1(message="Model already exists")
+	
 	private String login1;
 	
 	
